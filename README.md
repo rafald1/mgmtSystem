@@ -3,7 +3,10 @@
 The Management System is designed to streamline the process of collecting data, generating agreements, and tracking
 progress. It provides essential functionalities for managing agreements, including creation, editing, display, and deletion.
 
-This is the closed system so there is no user registration page.
+The idea was to create a system that would allow for collecting data to generate an agreement and to track the progress,
+ensuring a follow-up process after signing an agreement.
+
+This is a closed system, so there is no user registration page.
 The agreement functionality is available after login in.
 
 First the basic functionality was added that would allow to:
@@ -25,8 +28,8 @@ The django-htmx package was installed to filter data and display it in the table
 
 The django-crispy-forms and crispy-bootstrap5 packages were installed to make forms easier to manage.
 
-The "Change Status" button was needed to allow for convinient way to change status to one or many agreements
-at the time.
+The 'Change Status' button was implemented to provide a convenient way to update the status of one or multiple
+agreements simultaneously.
 
 Finally, functionality to generate an agreement was added. The packages: fpdf and pypdf were installed
 to accomplish the task.
