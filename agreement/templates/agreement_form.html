@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form class="p-3" method="post">{% csrf_token %}
+    <div class="row border-bottom my-3">
+        <div class="col-4">{{ form.first_name | as_crispy_field }}</div>
+        <div class="col-4">{{ form.last_name | as_crispy_field }}</div>
+        <div class="col-4">{{ form.agreement_date | as_crispy_field }}</div>
+    </div>
+    <div class="row">
+        <div class="col-8">{{ form.company_name | as_crispy_field }}</div>
+        <div class="col-4">{{ form.tax_number | as_crispy_field }}</div>
+    </div>
+    <div class="row">
+        <div class="col-6">{{ form.business_address_line_1 | as_crispy_field }}</div>
+        <div class="col-6">{{ form.business_address_line_2 | as_crispy_field }}</div>
+    </div>
+    <div class="row">
+        <div class="col-4">{{ form.business_zip_code | as_crispy_field }}</div>
+        <div class="col-4">{{ form.business_city | as_crispy_field }}</div>
+        <div class="col-4">{{ form.business_country | as_crispy_field }}</div>
+    </div>
+    <div class="row">
+        <div class="col-6">{{ form.shipping_address_line_1 | as_crispy_field }}</div>
+        <div class="col-6">{{ form.shipping_address_line_2 | as_crispy_field }}</div>
+    </div>
+    <div class="row">
+        <div class="col-4">{{ form.shipping_zip_code | as_crispy_field }}</div>
+        <div class="col-4">{{ form.shipping_city | as_crispy_field }}</div>
+        <div class="col-4">{{ form.shipping_country | as_crispy_field }}</div>
+    </div>
+    <div class="row">
+        <div class="col-6">{{ form.correspondence_address_line_1 | as_crispy_field }}</div>
+        <div class="col-6">{{ form.correspondence_address_line_2 | as_crispy_field }}</div>
+    </div>
+    <div class="row">
+        <div class="col-4">{{ form.correspondence_zip_code | as_crispy_field }}</div>
+        <div class="col-4">{{ form.correspondence_city | as_crispy_field }}</div>
+        <div class="col-4">{{ form.correspondence_country | as_crispy_field }}</div>
+    </div>
+    <div class="row">
+        <div class="col-3">{{ form.email_1 | as_crispy_field }}</div>
+        <div class="col-3">{{ form.email_2 | as_crispy_field }}</div>
+        <div class="col-3">{{ form.phone_no_1 | as_crispy_field }}</div>
+        <div class="col-3">{{ form.phone_no_2 | as_crispy_field }}</div>
+    </div>
+    <div class="row">
+        <div class="col-4">{{ form.price | as_crispy_field }}</div>
+        <div class="col-4">{{ form.no_of_items | as_crispy_field }}</div>
+        <div class="col-4">{{ form.agreement_length | as_crispy_field }}</div>
+    </div>
+    <div class="row">
+        <div class="col-12">{{ form.additional_info | as_crispy_field }}</div>
+    </div>
+    <a href="{% url 'agreement.htmx' %}" class="btn btn-secondary">Cancel</a>
+    <button type="submit" class="btn btn-primary my-5">Submit</button>
+</form>
+{% endblock %}

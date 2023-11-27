@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load l10n %}
+{% load add_characters %}
+
+{% block content %}
+<div class="container-fluid text-start">
+    <div class="row align-items-start">
+        <div class="col-2 my-2">ID:</div>
+        <div class="col-2 my-2">{{ agreement.pk }}</div>
+        <div class="col-2 my-2">Agreement Date:</div>
+        <div class="col-2 my-2">{{ agreement.agreement_date }}</div>
+        <div class="border-top w-100"></div>
+        <div class="col-2 my-2">Name:</div>
+        <div class="col-2 my-2">{{ agreement.name }}</div>
+        <div class="col-2 my-2">Company Name:</div>
+        <div class="col-2 my-2">{{ agreement.company_name }}</div>
+        <div class="col-2 my-2">Tax No.:</div>
+        <div class="col-2 my-2">{{ agreement.tax_number }}</div>
+        <div class="border-top w-100"></div>
+        <div class="col-2 my-2">Address Line 1 (Business):</div>
+        <div class="col-2 my-2">{{ agreement.business_address_line_1 }}</div>
+        <div class="col-2 my-2">Address Line 2 (Business):</div>
+        <div class="col-2 my-2">{{ agreement.business_address_line_2 }}</div>
+        <div class="col-2 my-2"></div>
+        <div class="col-2 my-2"></div>
+        <div class="col-2 my-2">Zip Code (Business):</div>
+        <div class="col-2 my-2">{{ agreement.business_zip_code }}</div>
+        <div class="col-2 my-2">City (Business):</div>
+        <div class="col-2 my-2">{{ agreement.business_city }}</div>
+        <div class="col-2 my-2">Country (Business):</div>
+        <div class="col-2 my-2">{{ agreement.business_country }}</div>
+        <div class="border-top w-100"></div>
+        <div class="col-2 my-2">Address Line 1 (Shipping):</div>
+        <div class="col-2 my-2">{{ agreement.shipping_address_line_1 }}</div>
+        <div class="col-2 my-2">Address Line 2 (Shipping):</div>
+        <div class="col-2 my-2">{{ agreement.shipping_address_line_2 }}</div>
+        <div class="col-2 my-2"></div>
+        <div class="col-2 my-2"></div>
+        <div class="col-2 my-2">Zip Code (Shipping):</div>
+        <div class="col-2 my-2">{{ agreement.shipping_zip_code }}</div>
+        <div class="col-2 my-2">City (Shipping):</div>
+        <div class="col-2 my-2">{{ agreement.shipping_city }}</div>
+        <div class="col-2 my-2">Country (Shipping):</div>
+        <div class="col-2 my-2">{{ agreement.shipping_country }}</div>
+        <div class="border-top w-100"></div>
+        <div class="col-2 my-2">Address Line 1 (Correspondence):</div>
+        <div class="col-2 my-2">{{ agreement.correspondence_address_line_1 }}</div>
+        <div class="col-2 my-2">Address Line 2 (Correspondence):</div>
+        <div class="col-2 my-2">{{ agreement.correspondence_address_line_2 }}</div>
+        <div class="col-2 my-2"></div>
+        <div class="col-2 my-2"></div>
+        <div class="col-2 my-2">Zip Code (Correspondence):</div>
+        <div class="col-2 my-2">{{ agreement.correspondence_zip_code }}</div>
+        <div class="col-2 my-2">City (Correspondence):</div>
+        <div class="col-2 my-2">{{ agreement.correspondence_city }}</div>
+        <div class="col-2 my-2">Country (Correspondence):</div>
+        <div class="col-2 my-2">{{ agreement.correspondence_country }}</div>
+        <div class="border-top w-100"></div>
+        <div class="col-2 my-2">Primary E-Mail Address:</div>
+        <div class="col-2 my-2">{{ agreement.email_1 }}</div>
+        <div class="col-2 my-2">Secondary E-Mail Address:</div>
+        <div class="col-2 my-2">{{ agreement.email_2 }}</div>
+        <div class="border-top w-100"></div>
+        <div class="col-2 my-2">Primary Phone No.:</div>
+        <div class="col-2 my-2">{{ agreement.phone_no_1 | add_space:3 }}</div>
+        <div class="col-2 my-2">Secondary Phone No.:</div>
+        <div class="col-2 my-2">{{ agreement.phone_no_2 | add_space:3 }}</div>
+        <div class="border-top w-100"></div>
+        <div class="col-2 my-2">Price per Unit:</div>
+        <div class="col-2 my-2">{{ agreement.price }}</div>
+        <div class="col-2 my-2">No. of Items:</div>
+        <div class="col-2 my-2">{{ agreement.no_of_items }}</div>
+        <div class="col-2 my-2">Agreement Length in Months:</div>
+        <div class="col-2 my-2">{{ agreement.agreement_length }}</div>
+        <div class="border-top w-100"></div>
+        <div class="col-2 my-2">Additional Information:</div>
+        <div class="col-10 my-2">{{ agreement.additional_info }}</div>
+        <div class="border-top w-100"></div>
+        <div class="col-2 my-2">Created on:</div>
+        <div class="col-2 my-2">{{ agreement.created }}</div>
+        <div class="col-2 my-2">Created by User:</div>
+        <div class="col-2 my-2">{{ agreement.user }}</div>
+        <div class="col-2 my-2">Status:</div>
+        <div class="col-2 my-2">{{ agreement.status }}</div>
+    </div>
+</div>
+<a href="{% url 'agreement.htmx' %}" class="btn btn-secondary my-5">Back</a>
+<a href="{% url 'agreement.update' pk=agreement.id %}" class="btn btn-secondary my-5">Edit</a>
+<a href="{% url 'agreement.delete' pk=agreement.id %}" class="btn btn-danger my-5">Delete</a>
+{% endblock %}

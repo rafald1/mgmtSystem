@@ -1,0 +1,5 @@
+/* Override Bootstrap styles for active page item */
+.page-item.active .page-link {
+    background-color: grey;
+    border-color: black;
+}

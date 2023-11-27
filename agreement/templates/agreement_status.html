@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form method="post">{% csrf_token %}
+    <p>Selected agreements:</p>
+    {% for agreement in agreements %}
+        <p>ID {{ agreement.id }}, {{ agreement.name }}</p>
+    {% endfor %}
+    <p>Are you sure you want to change status of all selected agreements?</p>
+    <div class="row">
+        <div class="col-12">{{ form.status | as_crispy_field }}</div>
+    </div>
+    <a class="btn btn-secondary" href="{% url 'agreement.htmx' %}">Cancel</a>
+    <input type="submit" class="btn btn-primary" value="Confirm"/>
+</form>
+{% endblock %}

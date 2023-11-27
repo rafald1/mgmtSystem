@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% load render_table from django_tables2 %}
+{% load i18n %}
+{% load django_tables2 %}
+
+{% block content %}
+<div class="container-fluid my-2">
+    <div class="alert alert-secondary my-2">
+        <div><h3>Agreement Management</h3></div>
+        <div id="show-message"></div>
+    </div>
+    <div class="row my-3">
+        <div class="col-10">
+            <button id="new" type="submit" name="new" class="btn btn-secondary"
+                    hx-post="{% url 'agreement.htmx.action' %}"
+                    hx-target="#show-message"
+                    hx-include="#actions">New
+            </button>
+            <button id="edit" type="submit" name="edit" class="btn btn-secondary"
+                    hx-post="{% url 'agreement.htmx.action' %}"
+                    hx-target="#show-message"
+                    hx-include="#actions">Edit
+            </button>
+            <button id="details" type="submit" name="details" class="btn btn-secondary"
+                    hx-post="{% url 'agreement.htmx.action' %}"
+                    hx-target="#show-message"
+                    hx-include="#actions">Details
+            </button>
+            <button id="delete" type="submit" name="delete" class="btn btn-secondary"
+                    hx-post="{% url 'agreement.htmx.action' %}"
+                    hx-target="#show-message"
+                    hx-include="#actions">Delete
+            </button>
+            <button id="status" type="submit" name="status" class="btn btn-secondary"
+                    hx-post="{% url 'agreement.htmx.action' %}"
+                    hx-target="#show-message"
+                    hx-include="#actions">Change Status
+            </button>
+            <button id="to_pdf" type="submit" name="to_pdf" class="btn btn-secondary"
+                    hx-post="{% url 'agreement.htmx.action' %}"
+                    hx-target="#show-message"
+                    hx-include="#actions">Generate PDF
+            </button>
+        </div>
+        <div class="col-2 form-inline">
+            <input type="search" name="query"
+                   class="form-control"
+                   hx-get="{% url 'agreement.htmx' %}"
+                   hx-trigger="keyup changed delay:500ms, search"
+                   hx-target=".table-container"
+                   placeholder="Search...">
+        </div>
+    </div>
+</div>
+<div class="table-top-container">
+    <form id="actions"
+          hx-get="{% url 'agreement.htmx' %}"
+          hx-target=".table-container"
+          hx-swap="outerHTML"
+          x-data="{select_all: false}"
+          x-on:htmx:after-swap="select_all = false">
+        {% csrf_token %}
+        {# Content table #}
+        {% render_table table %}
+    </form>
+</div>
+<script>
+    document.addEventListener("htmx:afterSwap", function (event) {
+        var showMessageDiv = document.getElementById("show-message");
+
+        if (showMessageDiv) {
+            // Remove the message after 10 seconds
+            setTimeout(function () {
+                showMessageDiv.innerHTML = "";  // Clear the content
+            }, 10000);
+        }
+    });
+</script>
+{% endblock %}
