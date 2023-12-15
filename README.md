@@ -67,3 +67,45 @@ Actions for one checkmark
 Actions for many checkmarks
 
 ![Actions_Many_Checkmarks](preview/mgmt_system_actions_many_checkmarks.gif)
+
+### Installation
+
+1. **Clone the Repository:**
+    ```bash
+    git clone https://github.com/rafald1/mgmtSystem.git
+    cd mgmtSystem
+    ```
+   
+2. **Create a Virtual Environment (Optional but Recommended):**
+    ```bash
+    # Create a virtual environment
+    python -m venv .venv
+
+    # Activate the virtual environment
+    # On Windows
+    .\.venv\Scripts\activate
+    # On macOS/Linux
+    source .venv/bin/activate
+    ```
+
+3. **Install Dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4. **Create Superuser (Admin User):**
+    ```bash
+    python manage.py createsuperuser
+    ```
+    Follow the prompts to create an admin user. This user can be used for login.
+
+
+5. **Run the Django Server:**
+    ```bash
+    python manage.py runserver
+    ```
+6. **Log in to the Management System:**
+   
+   Open your web browser and go to http://127.0.0.1:8000/.
+
+   Log in using created credentials.
